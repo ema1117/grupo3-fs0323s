@@ -1,0 +1,24 @@
+#root {
+  max-width: 1280px;
+  min-width: 560px;
+  margin: 0 auto; 
+  text-align: center;
+  background-color: black;
+  color: #FAE9FC;
+
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}

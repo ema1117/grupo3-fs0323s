@@ -1,0 +1,16 @@
+.fondoRosa{
+    background-color: #E42CE8;
+}
+
+.letraRosa{
+
+    color: #FAE9FC;
+    font-size: 16px;
+}
+
+#cerrarAnuncio:hover{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+ 

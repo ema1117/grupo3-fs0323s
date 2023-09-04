@@ -1,0 +1,45 @@
+.letraRosa{
+    color: #FAE9FC !important;
+    font-size: 20px !important;
+}
+
+
+.botones:hover{
+    background-color: rgb(39, 39, 39);    
+    border-radius: 5px;
+ }
+
+.logo{
+    height: 80px;
+    width:80px;
+}
+
+.logo:hover{   
+    background-color: rgb(39, 39, 39); 
+    border-radius: 5px;
+    
+}
+
+.colorRosa{
+    color: #FAE9FC !important;
+}
+
+.hamburguesa{
+ 
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    vertical-align: middle;
+    background-image: url('../../assets/img/hamburguesa.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    border: 1px solid white;
+    border-radius: 5px;
+     
+}
+
+.bordeRosa{
+    border-bottom: 3px solid #E42CE8;
+    border-top: 3px solid #E42CE8; 
+}
