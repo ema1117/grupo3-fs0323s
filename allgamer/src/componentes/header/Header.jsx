@@ -8,14 +8,15 @@ const Header = () => {
   return (
    
     //utilizo navbar de bootstrap
-    <nav className="navbar navbar-expand-lg  bordeRosa">
-      <div className="ms-5 me-5 container-fluid  align-items-start align-items-lg-center ">        
-       <Logo/>
-       <Menu/> 
-       <Botones/>
-    </div>
-  </nav>
-
+    <div className='d-flex justify-content-evenly align-items-start bordeRosa p-1'>
+      <Logo/>
+      <nav className="navbar navbar-expand-lg mt-1">
+        <div className="ms-5 me-5 align-items-start align-items-lg-center ">         
+        <Menu/>        
+       </div>
+      </nav>
+      <Botones/>
+  </div>
 
   )
 }

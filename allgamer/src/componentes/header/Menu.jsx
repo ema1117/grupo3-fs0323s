@@ -2,7 +2,7 @@ import React from 'react'
 
 const Menu = () => {
   return (
-    <div >
+     <>
 
     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span className="hamburguesa mt-3 mt-lg-0 "></span>
@@ -48,7 +48,7 @@ const Menu = () => {
     </li>
       </ul>
     </div>
-  </div>
+    </>
   )
 }
 

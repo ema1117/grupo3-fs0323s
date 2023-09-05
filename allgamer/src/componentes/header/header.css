@@ -43,3 +43,34 @@
     border-bottom: 3px solid #E42CE8;
     border-top: 3px solid #E42CE8; 
 }
+
+.fondoCarrito{
+    background-image: url('../../assets/img/cart.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.fondoBusqueda{
+    background-image: url('../../assets/img/search.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.fondoUsuario{
+    background-image: url('../../assets/img/user.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 50px;
+    width: 50px;
+}
+
+.borde{
+    border: 1px solid #E42CE8;
+}
