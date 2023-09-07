@@ -1,0 +1,13 @@
+.bground {
+    background-image: url(../../assets/img/Banner.jpg);
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: contain;
+    
+}
+.ver-ofertas{
+    padding-top: 28%;
+    display: flex;
+    margin-left: 35%;
+    
+}
