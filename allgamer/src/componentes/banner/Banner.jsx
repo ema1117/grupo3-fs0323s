@@ -3,12 +3,18 @@ import './banner.css'
 
 const Banner = () => {
   return (
-    <div className='bground'>
-      <div className='ver-ofertas'>
-        <button type="button" className="btn btn-danger">ver ofertas</button>  
-      </div>
-    </div>  
     
+   <div className='container-fluid bordes'>
+
+      <div className='col position-relative'>
+        <img className='img-fluid' src="./src/assets/img/Banner.jpg" alt="banner" />
+        <div className='position-absolute bottom-0 start-50 '>
+          <button type="button" className="btn btn-danger">ver ofertas</button>
+        </div>
+        
+      </div>
+       
+    </div>   
   
   )
 }
