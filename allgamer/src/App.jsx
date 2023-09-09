@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useReducer, useEffect } from 'react'
+import { TYPES } from './action';
 import './App.css'
 import axios from 'axios';
 import Anuncio from './componentes/anuncio/Anuncio';
@@ -15,8 +16,24 @@ import Pie from './componentes/Pie/Pie';
 
 
 function App() {
-  const [count, setCount] = useState(0)
- 
+  // const [count, setCount] = useState(0)
+//  const [state, dispatch] = useReducer (initialState, reducer);
+
+//  const updateState = async () => {
+//   const urlProductos = 'http://localhost:3000/products';
+//   const urlCarrito = 'http://localhost:3000/cart';
+//   const resProductos = await axios.get (urlProductos);
+//   const resCarrito = await axios.get (urlCarrito);
+//   const infoProductos = await resProductos.data;
+//   const infoCarrito = await resCarrito.data;
+
+//     dispatch ({type: TYPES.READ_STATE, payload: [infoProductos, infoCarrito]});
+//  }
+
+//  useEffect (()=> {
+//   updateState()
+//  }, [])
+
   return (
     <>
       <Anuncio/>
