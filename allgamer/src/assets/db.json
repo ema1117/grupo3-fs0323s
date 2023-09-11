@@ -1,0 +1,71 @@
+{ "productos":[{
+    "id":1,
+    "tipoProductos": "ultimos Ingresos",
+    "nombre":"Notebook Asus",
+    "descripcion": "Notebook Asus TUF FA506 FHD 15.6 Ryzen 5 4600H 16GB 512GB SSD NVMe GTX 1650 ",
+    "precio": 509999,
+    "imagen":"src/assets/img/notebookAsus.png"
+
+},
+{
+    "id":2,
+    "tipoProductos": "ultimos Ingresos",
+    "nombre":"SSD Kingston",
+    "descripcion": "Memoria Kinstong DDR4 8GB 2666Mhz Vengeance LPX Black ",
+    "precio": 82500,
+    "imagen":"src/assets/img/memoriakingston.png"
+
+},{
+    "id":3,
+    "tipoProductos": "ultimos Ingresos",
+    "nombre":"Teclado Gamer",
+    "descripcion": "Teclado Mecanico Redragon Kumara K552 White RGB Outemu Blue ESP ",
+    "precio": 35000,
+    "imagen":"src/assets/img/tecladoRedragon.png"
+
+},{
+    "id":4,
+    "tipoProductos": "ultimos Ingresos",
+    "nombre":"Disco Externo 2TB",
+    "descripcion": "Disco Rigido Externo Lexar Basics 2TB USB 3.0 ",
+    "precio": 20000,
+    "imagen":"src/assets/img/discoexternolexor.png"
+
+},{
+    "id":5,
+    "tipoProductos": "Mas Vendidos",
+    "nombre":"Silla Gamer",
+    "descripcion": "Silla gamer Corsair T3 Rush Fabric Gris/Blanco ",
+    "precio": 250000,
+    "imagen":"src/assets/img/sillagamer.png"
+
+},
+{
+    "id":6,
+    "tipoProductos": "Mas Vendidos",
+    "nombre":"Fuente 1000W",
+    "descripcion": "Fuente Be Quiet 1000W 80 Plus Gold PURE POWER 11 Full Modular ",
+    "precio": 82500,
+    "imagen":"src/assets/img/fuente1000w.png"
+
+},{
+    "id":7,
+    "tipoProductos": "Mas Vendidos",
+    "nombre":"Gabinete Antec",
+    "descripcion": "Gabinete Antec NX292 MESH RGB Vidrio Templado ",
+    "precio": 35000,
+    "imagen":"src/assets/img/gabinete.jpg"
+
+},{
+    "id":8,
+    "tipoProductos": "Mas Vendidos",
+    "nombre":"AMD Ryzen 5",
+    "descripcion": "Procesador AMD RYZEN 5 3600 4.2GHz Turbo AM4 Wraith Stealth Cooler",
+    "precio": 153000,
+    "imagen":"src/assets/img/procesadoramdryzen5.png"
+
+}],
+
+"carrito":[]
+
+}
