@@ -12,34 +12,78 @@ import Dia from './componentes/Dia/Dia';
 import Carrousel from './componentes/Carrousel/Carrousel';
 import RedesSociales from './componentes/RedesSociales/RedesSociales';
 import Pie from './componentes/Pie/Pie';
- 
+import { shoopingReducer,shoppingInitialState } from './reducer';
+  
 
 
 function App() {
-  // const [count, setCount] = useState(0)
-//  const [state, dispatch] = useReducer (initialState, reducer);
+   const [count, setCount] = useState(0)
+  
+   //reducer par amanejar el carrito
+  const [state,dispatch] = useReducer(shoopingReducer,shoppingInitialState)
+  
+  //destructuro el state del reducer y lo guardo en variables
+  const {productos,carrito} = state;
 
-//  const updateState = async () => {
-//   const urlProductos = 'http://localhost:3000/products';
-//   const urlCarrito = 'http://localhost:3000/cart';
-//   const resProductos = await axios.get (urlProductos);
-//   const resCarrito = await axios.get (urlCarrito);
-//   const infoProductos = await resProductos.data;
-//   const infoCarrito = await resCarrito.data;
+//Funcion de consulta al archivo bd.json y que craga el estado inicial del reducer (productos y carrito)
+const updateState = async() =>{
 
-//     dispatch ({type: TYPES.READ_STATE, payload: [infoProductos, infoCarrito]});
-//  }
+  //cargo las url en variables
+  const productosURL = "http://localhost:3000/productos";
+  const carritoURL = " http://localhost:3000/carrito";
+  //relaizo la consulta con axios
+  const respProductos = await axios.get(productosURL);
+  const respCarrito = await axios.get(carritoURL);
+  //guardo las respuestas en variables
+  const newProductos = await respProductos.data
+  const newCarrito = await respCarrito.data
+  
+ //funcion que carga los valores del json en el state de reducer 
+ dispatch({type:TYPES.READ_STATE,payload:[newProductos,newCarrito]})
+   
+}
 
-//  useEffect (()=> {
-//   updateState()
-//  }, [])
+
+//funcion añadir item a carrito
+const addToCart = (id) =>{   
+  let agregarCarrito = window.confirm("estas seguro que deseas agregar el item al carrito?")
+  
+  if(agregarCarrito){
+    dispatch({type:TYPES.AGREGAR_A_CARRITO,payload:id})
+  } 
+ 
+  
+}
+
+//funcion limpiar carrito
+const clearCart = () =>{ 
+  dispatch({type:TYPES.LIMPIAR_CARRITO});   
+}
+
+//funcion quitar un elemento del carrito
+const deleteFromCart = (id) => {
+ // console.log(id)
+  dispatch({type:TYPES.ELIMINAR_UNIDAD, payload:id})     
+}
+
+
+
+//ejecuto una sola vez el pedido de datos al json
+useEffect(()=>{
+  updateState()
+
+},[])
+
+
+ 
+
 
   return (
     <>
       <Anuncio/>
-      <Header/>
+      <Header carrito={carrito} clearCart={clearCart} deleteFromCart={deleteFromCart}/>
       <Banner />
-      <Productos/>
+      <Productos productos={productos} addToCart={addToCart}/>
       <Elegirnos/> 
       <Marcas/>
       <Dia/>
