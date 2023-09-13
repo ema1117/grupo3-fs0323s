@@ -4,7 +4,7 @@ import './banner.css'
 const Banner = () => {
   return (
     
-   <div className='container-fluid bordes'>
+  <div className='container-fluid bordes'>
 
       <div className='col position-relative'>
         <img className='img-fluid' src="./src/assets/img/Banner.jpg" alt="banner" />
@@ -13,7 +13,6 @@ const Banner = () => {
         </div>
         
       </div>
-       
     </div>   
   
   )
