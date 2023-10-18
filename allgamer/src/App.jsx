@@ -59,9 +59,9 @@ const clearCart = () =>{
 const deleteFromCart = (id, all = false) => {
  // console.log(id)
   if (all) {
-    dispatch ({type:TYPES.ELIMINAR_TODOS, payload:id})
+    dispatch({type:TYPES.ELIMINAR_TODOS, payload:id})
   } else {
-  dispatch({type:TYPES.ELIMINAR_UNIDAD, payload:id})     
+  dispatch ({type:TYPES.ELIMINAR_UNIDAD, payload:id})     
   }
 }
 

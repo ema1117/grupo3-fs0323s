@@ -24,7 +24,7 @@ export const shoopingReducer = (state, action) =>{
 
     }
     case TYPES.ELIMINAR_TODOS: {
-        return {
+     return {
             ...state,
              carrito:state.carrito.filter (item => item.id !== action.payload)
         }
