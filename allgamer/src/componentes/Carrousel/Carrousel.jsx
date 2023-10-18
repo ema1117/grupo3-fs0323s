@@ -8,9 +8,10 @@ const Carrousel = () => {
       <h2>
         <span className="letraRoja">@allgamers</span> en Instagram
       </h2>
-      <div className="w-75 m-auto bordeRosaCards">
+      <div className="w-50 m-auto bordeRosaCards">
         <div id="carouselExample" className="carousel slide" data-bs-ride="carousel">
           <div className="carousel-inner">
+
             <div className="carousel-item active">
               <img
                 src="../../src/assets/img/carrousel-notebook-asus-i5.png"
@@ -18,7 +19,8 @@ const Carrousel = () => {
                 alt="img1"
               />
             </div>
-            <div className="carousel-item active">
+
+            <div className="carousel-item  ">
               <img
                 src="../../src/assets/img/CARROUSEL-notebook-DELL-I3.jpg"
                 className="d-block w-100"
@@ -26,7 +28,7 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item  ">
               <img
                 src="../../src/assets/img/carrousel-notebook-dell-i5.jpg"
                 className="d-block w-100"
@@ -34,7 +36,7 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item ">
               <img
                 src="../../src/assets/img/carrousel-notebook-hp-i3.png"
                 className="d-block w-100"
@@ -42,7 +44,7 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item ">
               <img
                 src="../../src/assets/img/carrousel-notebook-lenovo-i3.jpg"
                 className="d-block w-100"
@@ -50,7 +52,7 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item ">
               <img
                 src="../../src/assets/img/Carrousel-pc-core-i3.jpg"
                 className="d-block w-100"
@@ -58,7 +60,7 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item">
               <img
                 src="../../src/assets/img/Carrousel-pc-corei5.jpeg"
                 className="d-block w-100"
@@ -66,7 +68,7 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item">
               <img
                 src="../../src/assets/img/Carrousel-pc-corei7.jpg"
                 className="d-block w-100"
@@ -74,21 +76,21 @@ const Carrousel = () => {
               />
             </div>
             
-            <div className="carousel-item active">
+            <div className="carousel-item">
               <img
                 src="../../src/assets/img/Carrousel-pc-rayzen5.jpg"
                 className="d-block w-100"
                 alt="img9"
               />
             </div>
-            <div className="carousel-item active">
+            <div className="carousel-item">
               <img
                 src="../../src/assets/img/Carrousel-pc-ryzen7.jpg"
                 className="d-block w-100"
                 alt="img10"
               />
             </div>
-            <div className="carousel-item active">
+            <div className="carousel-item">
               <img
                 src="../../src/assets/img/Carrousel-pc-ryzen9.jpg"
                 className="d-block w-100"
@@ -97,23 +99,11 @@ const Carrousel = () => {
             </div>
 
           </div>
-          <button
-            className="carousel-control-prev"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="prev"
-          >
-            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Previous</span>
+          <button className="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">           
+            <span className="flechaIzquierda" aria-hidden="true" > </span>
           </button>
-          <button
-            className="carousel-control-next"
-            type="button"
-            data-bs-target="#carouselExample"
-            data-bs-slide="next"
-          >
-            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-            <span className="visually-hidden">Next</span>
+          <button className="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">            
+            <span className="flechaDerecha" aria-hidden="true"> </span>
           </button>
         </div>
       </div>
