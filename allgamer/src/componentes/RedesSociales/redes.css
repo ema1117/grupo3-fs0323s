@@ -1,0 +1,17 @@
+.fondoRosaNegro{
+    border-top: 2px solid #E82CBD !important;
+    border-bottom: 2px solid #E82CBD !important;
+    padding: 30px 0px;
+   
+}
+
+.fondoRosaOpaco{
+    border-top: 2px solid #E82CBD !important;
+    border-bottom: 2px solid #E82CBD !important;
+    padding: 30px 0px;
+  
+    background-image: url('../../assets/img/fondoRedesSociales.png');
+  
+}
+
+ 

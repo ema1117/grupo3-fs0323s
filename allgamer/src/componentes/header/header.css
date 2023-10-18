@@ -74,3 +74,31 @@
 .borde{
     border: 1px solid #E42CE8;
 }
+
+.bordeSuperior{
+    border-top: 1px solid #E42CE8;
+}
+
+.fondoOff{
+    background-color: hsl(222, 14%, 10%) !important;
+}
+
+.cantidadProductos{
+    font-size: 13px !important;
+    height: 20px;
+    width: 20px;
+    background-color: hsla(300, 87%, 42%, 0.747) !important;
+}
+
+.imagenCarrito{
+    width: 30px;
+    height: 30px;
+
+}
+
+.imgBorrar{
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    padding-bottom: 5px;
+}
