@@ -1,0 +1,33 @@
+.flechaIzquierda{ 
+    display: inline-block;
+    width: 50px;
+    height: 50px; 
+    background-image: url('../../assets/img/flecha-izquierda.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+  }
+   
+  
+  .flechaDerecha{ 
+    display: inline-block;
+    width: 50px;
+    height: 50px; 
+    background-image: url('../../assets/img/flecha-derecha.png');
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 100% 100%;
+  }
+
+  .bgOscuro{
+    background-color: #E42CE8 !important;
+  }
+
+  .bordeRosaCards{
+      box-shadow: 5px 5px 10px #E42CE8 !important;
+    
+  }
+
+  .letraRoja{
+    color: #E82C5F !important;
+  }

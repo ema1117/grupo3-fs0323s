@@ -12,12 +12,20 @@ import Dia from './componentes/Dia/Dia';
 import Carrousel from './componentes/Carrousel/Carrousel';
 import RedesSociales from './componentes/RedesSociales/RedesSociales';
 import Pie from './componentes/Pie/Pie';
- 
+import { shoopingReducer,shoppingInitialState } from './reducer';
+  
 
 
 function App() {
- const [count, setCount] = useState(0)
- const [state, dispatch] = useReducer (initialState, reducer);
+
+
+   const [count, setCount] = useState(0)
+  
+   //reducer par amanejar el carrito
+  const [state,dispatch] = useReducer(shoopingReducer,shoppingInitialState)
+  
+  //destructuro el state del reducer y lo guardo en variables
+  const {productos,carrito} = state;
 
 
 //Funcion de consulta al archivo bd.json y que craga el estado inicial del reducer (productos y carrito)
@@ -55,15 +63,12 @@ const clearCart = () =>{
   dispatch({type:TYPES.LIMPIAR_CARRITO});   
 }
 
-//funcion quitar un elemento del carrito
-const deleteFromCart = (id, all = false) => {
- // console.log(id)
-  if (all) {
-    dispatch({type:TYPES.ELIMINAR_TODOS, payload:id})
-  } else {
-  dispatch ({type:TYPES.ELIMINAR_UNIDAD, payload:id})     
-  }
-}
+  //funcion quitar un elemento del carrito
+  const deleteFromCart = (id) => {
+   // console.log(id)
+    dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})     
+  }   
+
 
 
 
@@ -80,9 +85,9 @@ useEffect(()=>{
   return (
     <>
       <Anuncio/>
-      <Header/>
+      <Header carrito={carrito} clearCart={clearCart} deleteFromCart={deleteFromCart}/>
       <Banner />
-      <Productos/>
+      <Productos productos={productos} addToCart={addToCart}/>
       <Elegirnos/> 
       <Marcas/>
       <Dia/>

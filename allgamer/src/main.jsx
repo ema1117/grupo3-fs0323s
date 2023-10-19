@@ -6,7 +6,7 @@ import './index.css'
 import $ from 'jquery';
 import Popper from 'popper.js';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
-
+import "@fontsource/montserrat";
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

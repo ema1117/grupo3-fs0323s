@@ -1,13 +1,15 @@
 import { TYPES } from "./action"
 
-export const initialState = {
+export const shoppingInitialState = {
     productos: [],
-    cart: []
+    carrito: []
 
 }
 
-export const shoopingReducer = (state, action) =>{
-   switch (action.type) {
+
+export const shoopingReducer = (state,actions) =>{
+   switch (actions.type) {
+
 
     case TYPES.READ_STATE: {
         return {
