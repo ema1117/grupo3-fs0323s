@@ -6,14 +6,16 @@ export const shoppingInitialState = {
 
 }
 
+
 export const shoopingReducer = (state,actions) =>{
    switch (actions.type) {
+
 
     case TYPES.READ_STATE: {
         return {
             ...state,
-            productos: actions.payload [0],
-            cart: actions.payload [1]
+            productos: action.payload [0],
+            carrito: action.payload [1]
         }
     }
 
@@ -24,8 +26,12 @@ export const shoopingReducer = (state,actions) =>{
 
     }
     case TYPES.ELIMINAR_TODOS: {
-
+     return {
+            ...state,
+             carrito:state.carrito.filter (item => item.id !== action.payload)
+        }
     }
+
     case TYPES.LIMPIAR_CARRITO: {
 
     }

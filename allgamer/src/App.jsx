@@ -17,6 +17,8 @@ import { shoopingReducer,shoppingInitialState } from './reducer';
 
 
 function App() {
+
+
    const [count, setCount] = useState(0)
   
    //reducer par amanejar el carrito
@@ -24,6 +26,7 @@ function App() {
   
   //destructuro el state del reducer y lo guardo en variables
   const {productos,carrito} = state;
+
 
 //Funcion de consulta al archivo bd.json y que craga el estado inicial del reducer (productos y carrito)
 const updateState = async() =>{
@@ -60,11 +63,12 @@ const clearCart = () =>{
   dispatch({type:TYPES.LIMPIAR_CARRITO});   
 }
 
-//funcion quitar un elemento del carrito
-const deleteFromCart = (id) => {
- // console.log(id)
-  dispatch({type:TYPES.ELIMINAR_UNIDAD, payload:id})     
-}
+  //funcion quitar un elemento del carrito
+  const deleteFromCart = (id) => {
+   // console.log(id)
+    dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})     
+  }   
+
 
 
 
