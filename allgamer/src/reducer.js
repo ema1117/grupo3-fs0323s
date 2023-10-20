@@ -34,8 +34,15 @@ export const shoopingReducer = (state,actions) =>{
 
     case TYPES.LIMPIAR_CARRITO: {
 
-    }
-    default:
-        return state;
-   } 
+       return{
+         ...state,
+        carrito:[]
+        } 
+     
+    }  
+    
+
+  }
+
+
 }
