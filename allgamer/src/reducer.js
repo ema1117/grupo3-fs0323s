@@ -7,8 +7,8 @@ export const shoppingInitialState = {
 }
 
 
-export const shoopingReducer = (state,actions) =>{
-   switch (actions.type) {
+export const shoopingReducer = (state,action) =>{
+   switch (action.type) {
 
 
     case TYPES.READ_STATE: {
@@ -23,6 +23,23 @@ export const shoopingReducer = (state,actions) =>{
 
     }
     case TYPES.ELIMINAR_UNIDAD: {
+        let itemToDelete = state.carrito.find((carrito) => carrito.id === action.payload);
+        return itemToDelete.quantity > 1
+        ?{
+            ...state,
+            carrito: state.carrito.map((item)=>
+                item.id === action.payload
+                ? {...item, quantity : item.quantity - 1}
+                : item
+            ) 
+        }
+        :{
+            ...state,
+            carrito: state.carrito.filter(item=> item.id !== action.payload)
+        }   
+
+
+
 
     }
     case TYPES.ELIMINAR_TODOS: {
@@ -34,7 +51,12 @@ export const shoopingReducer = (state,actions) =>{
 
     case TYPES.LIMPIAR_CARRITO: {
 
+
+
+
     }
+
+
     default:
         return state;
    } 
