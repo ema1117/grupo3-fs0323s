@@ -6,6 +6,12 @@
     
 }
 
+@media (max-width: 990px) {
+    .fondoDia{
+        background: url('../../assets/img/gamerday-banner-chico.png')  no-repeat; 
+    }
+}
+
 .vinculo{  
     color: #E82C5F !important;
     font-size: 20px;
