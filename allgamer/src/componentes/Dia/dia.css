@@ -1,0 +1,12 @@
+.fondoDia{
+   
+    background: url('../../assets/img/gamerday-banner.png') no-repeat;    
+    background-size: cover;
+    min-height: 376px;
+    
+}
+
+.vinculo{  
+    color: #E82C5F !important;
+    font-size: 20px;
+}
