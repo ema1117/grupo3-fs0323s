@@ -18,7 +18,23 @@ export const shoopingReducer = (state,action) =>{
       }
 
       case TYPES.AGREGAR_A_CARRITO: {
-
+        let newItem = state.productos.find(
+            (productos) => productos.id === action.payload
+          );
+            let itemIncarrito = state.carrito.find((item) => item.id === newItem.id);
+          return itemIncarrito
+            ? {
+                ...state,
+                carrito: state.carrito.map((item) =>
+                  item.id === newItem.id
+                    ? { ...item, quantity: item.quantity + 1 }
+                    : item
+                ),
+              }
+            : {
+                ...state,
+                carrito: [...state.carrito, { ...newItem, quantity: 1 }],
+              };  
       }
       case TYPES.ELIMINAR_UNIDAD: {
           let itemToDelete = state.carrito.find((carrito) => carrito.id === action.payload);

@@ -1,0 +1,21 @@
+
+.borde-inferior{
+    border-bottom: 1px solid #E42CE8;
+}
+
+.altoCard{
+    height: 480px !important;
+}
+
+
+.noBorde{
+    border-radius: 0px !important;
+    border: 1px solid #E42CE8 !important;
+    height: 450px !important;
+
+} 
+
+.altura96{
+    height: 96px;
+    font-size: 14px;
+}

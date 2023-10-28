@@ -48,15 +48,13 @@ const updateState = async() =>{
 
 
 //funcion añadir item a carrito
-const addToCart = (id) =>{   
+const addToCart = (id) =>{    
   let agregarCarrito = window.confirm("estas seguro que deseas agregar el item al carrito?")
-  
   if(agregarCarrito){
     dispatch({type:TYPES.AGREGAR_A_CARRITO,payload:id})
-  } 
- 
-  
-}
+  }   
+   
+ }
 
 //funcion limpiar carrito
 const clearCart = () =>{ 
@@ -66,7 +64,7 @@ const clearCart = () =>{
   //funcion quitar un elemento del carrito
   const deleteFromCart = (id) => {
    // console.log(id)
-    dispatch({type: TYPES.REMOVE_ONE_PRODUCT, payload:id})     
+    dispatch({type: TYPES.ELIMINAR_UNIDAD, payload:id})     
   }   
 
 
