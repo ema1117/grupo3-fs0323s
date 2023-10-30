@@ -4,7 +4,7 @@ import Logo from './Logo'
 import Menu from './Menu'
 import Botones from './Botones'  
 
-const Header = ({carrito,clearCart,deleteFromCart}) => {
+const Header = ({carrito,clearCart,deleteFromCart,agregaralcarrito}) => {
   return (
    
     //utilizo navbar de bootstrap
@@ -15,7 +15,7 @@ const Header = ({carrito,clearCart,deleteFromCart}) => {
         <Menu/>        
        </div>
       </nav>
-      <Botones carrito = {carrito}  clearCart={clearCart} deleteFromCart={deleteFromCart}/>
+      <Botones carrito = {carrito}  clearCart={clearCart} deleteFromCart={deleteFromCart} agregaralcarrito ={agregaralcarrito}/>
   </div>
 
   )

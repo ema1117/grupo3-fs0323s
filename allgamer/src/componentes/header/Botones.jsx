@@ -1,8 +1,8 @@
 import React from 'react'
- 
- 
+import Swal from 'sweetalert2'
+import { TYPES } from '../../action'
 
-const Botones = ({carrito,clearCart,deleteFromCart}) => {
+const Botones = ({carrito,clearCart,deleteFromCart,agregaralcarrito}) => {
    
 
      
@@ -82,8 +82,10 @@ const Botones = ({carrito,clearCart,deleteFromCart}) => {
             imgproducto.classList.add('imagenCarrito')
             imgproducto.src = carrito.imagen
             const productocarrito = document.createElement('p')
-            const por =  document.createElement('p') 
-            por.innerHTML = 'X'
+            const btnmenos =  document.createElement('img') 
+            btnmenos.classList.add('imgBorrar')
+            btnmenos.id = carrito.id
+            btnmenos.src = '../../src/assets/img/menos.png'
             productocarrito.classList.add('colorRosa')
             productocarrito.innerHTML = carrito.nombre 
             
@@ -96,34 +98,45 @@ const Botones = ({carrito,clearCart,deleteFromCart}) => {
             divcantPre.classList.add('d-flex','letraRosa', 'gap-1')
             const precioProducto = document.createElement('p')
             const cantidadProducto = document.createElement('p')
-            const btnborrar = document.createElement('a')
+            const btnmas = document.createElement('a')
             const imgborrar = document.createElement('img')
             imgborrar.classList.add('imgBorrar')
             imgborrar.id = carrito.id
-            imgborrar.src = '../../src/assets/img/papelera.png'
-            btnborrar.appendChild(imgborrar)
+            imgborrar.src = '../../src/assets/img/mas.png'
+            btnmas.appendChild(imgborrar)
   
-  
-            btnborrar.addEventListener('click', function(e){
+            
+            //manejo el evento del click en el btn de restar productos al carrito
+            btnmenos.addEventListener('click', function(e){
+         
+          
               //variable que contiene el valor de la cantidad de elemetos que tiene el producto
-              let auxCantidad = e.target.parentElement.parentElement.children[1].innerHTML - 1               
+              let auxCantidad = e.target.nextElementSibling.innerHTML - 1               
 
               if(auxCantidad > 0){
-                e.target.parentElement.parentElement.children[1].innerHTML = e.target.parentElement.parentElement.children[1].innerHTML - 1
+                e.target.nextElementSibling.innerHTML = auxCantidad
+                e.target.parentElement.children[3].innerHTML = "= $" + carrito.precio * auxCantidad 
+               
+
               }else{                
-                e.target.parentElement.parentElement.parentElement.remove()
+                e.target.parentElement.parentElement.remove()
+                 
               }
              
+              const auxTotal = document.querySelector('#precioTotal')
+              const auxPrecioTotal = auxTotal.textContent.slice(7)                
+              auxTotal.innerHTML = "TOTAL $"+ (parseInt(auxPrecioTotal)-carrito.precio)
+
               //ejecuto la funcion para borrar un timen del carrito
               deleteFromCart(parseInt(e.target.id))
-             
+            
               //me fijo si se borraron todos los productos del carrito y pongo el msj de no hay producto
-              if( document.querySelector('#contenedoroffCarrito').children.length == 3){
-                
-                //remuevo todo el contenido de canvas y muestro mensaje carrito vacio
-                offcanvas.removeChild(offcanvas.firstChild)
-  
-                const contenedor = document.createElement('div')
+             if( document.querySelector('#contenedoroffCarrito').children.length == 3){
+              
+               //remuevo todo el contenido de canvas y muestro mensaje carrito vacio
+               offcanvas.removeChild(offcanvas.firstChild)
+
+               const contenedor = document.createElement('div')
                 contenedor.id = 'contenedoroffCarrito'
                 contenedor.classList.add('d-flex','flex-column','align-items-center','gap-2')
                 const titulousuario = document.createElement('label')
@@ -131,30 +144,32 @@ const Botones = ({carrito,clearCart,deleteFromCart}) => {
                 titulousuario.innerHTML = 'No hay elementos en el carrito'
                 contenedor.appendChild(titulousuario)
                 offcanvas.appendChild(contenedor)  
-
               }
 
-
-
-
-
-
-  
             })
+
+
+            //manejo el evento del click en el btn de restar productos al carrito
+            btnmas.addEventListener('click', function(e){
+              e.target.parentElement.parentElement.children[1].innerHTML = parseInt(e.target.parentElement.parentElement.children[1].innerHTML) + 1 ;  
+              agregaralcarrito(parseInt(e.target.id))
+              e.target.parentElement.parentElement.children[3].innerHTML = "= $"+(carrito.precio * parseInt(e.target.parentElement.parentElement.children[1].innerHTML))
+              const auxTotal = document.querySelector('#precioTotal')
+              const auxPrecioTotal = auxTotal.textContent.slice(7)
+              console.log(auxPrecioTotal)
+              auxTotal.innerHTML = "TOTAL $"+ (parseInt(auxPrecioTotal)+carrito.precio)
+            })  
   
             cantidadProducto.innerHTML = carrito.quantity
             precio = carrito.quantity * carrito.precio
             precioProducto.innerHTML = ' = $' + precio
-            divcantPre.appendChild(por)
+            divcantPre.appendChild(btnmenos)
+
             divcantPre.appendChild(cantidadProducto)
-            divcantPre.appendChild(precioProducto)
-            divcantPre.appendChild(btnborrar)
-  
-            //
+            divcantPre.appendChild(btnmas)
+            divcantPre.appendChild(precioProducto)            
             divProducto.appendChild(divimaDes)
-            divProducto.appendChild(divcantPre)
-  
-            //
+            divProducto.appendChild(divcantPre)        
             contenedor.appendChild(divProducto)
             total += precio
           })
@@ -163,6 +178,7 @@ const Botones = ({carrito,clearCart,deleteFromCart}) => {
           const divtotal = document.createElement('div')
           divtotal.classList.add('bordeSuperior','d-flex','justify-content-end','w-100','letraRosa')
           const precioTotal = document.createElement('p') 
+          precioTotal.id = 'precioTotal'
           precioTotal.classList.add('mt-1')
           precioTotal.innerHTML = '<b>TOTAL $<b> ' + total
   
@@ -181,11 +197,18 @@ const Botones = ({carrito,clearCart,deleteFromCart}) => {
           
             //limpio los datos del carrito al hacer click a borrar carrito
             btnvaciar.addEventListener('click',function(){
-              let borrarCarrito = window.confirm("estas seguro que deseas vaciar el carrito?")
-             
-              if(borrarCarrito){
+              Swal.fire({
+                title: 'desea vaciar el carrito de compras?',    
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Vaciar'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                
                 //ejecuto funcion limpiar carrito
-                clearCart()
+                  clearCart()
 
                 //remuevo todo el contenido de canvas y muestro mensaje carrito vacio
                 offcanvas.removeChild(offcanvas.firstChild)
@@ -197,16 +220,21 @@ const Botones = ({carrito,clearCart,deleteFromCart}) => {
                 titulousuario.classList.add('colorRosa')
                 titulousuario.innerHTML = 'No hay elementos en el carrito'
                 contenedor.appendChild(titulousuario)
-                offcanvas.appendChild(contenedor)
-              }
+                offcanvas.appendChild(contenedor)  
+                  Swal.fire(
+                    ' ',
+                    'Se vacio el carrito con exito',
+                    'success'
+                  )
+                }
+              })            
              
            })              
             
             
   
           contenedor.appendChild(btnvaciar)
-          contenedor.appendChild(btnfinalizar)
-  
+          contenedor.appendChild(btnfinalizar)  
           offcanvas.appendChild(contenedor)
   
         }        
